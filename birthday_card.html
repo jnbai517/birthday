@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>HAPPY BIRTHDAY</title>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      background-color: #f9f5f0;
+      text-align: center;
+      padding: 20px;
+    }
+    img {
+      width: 45%;
+      margin: 10px;
+      border: 5px solid #ddd;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    audio {
+      margin-top: 30px;
+    }
+    .click-tip {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎉 HAPPY BIRTHDAY 🎉</h1>
+
+  <div>
+    <img src="source/card1.png" alt="生日贺卡1">
+    <img src="source/card2.png" alt="生日贺卡2">
+  </div>
+
+  <h2>🎶 背景音乐：生日快乐歌</h2>
+  <div class="click-tip">提示：请点击页面任意位置以播放音乐 🎵</div>
+  <audio id="bgm" src="source/birthday_music.mp3"></audio>
+
+  <script>
+    window.addEventListener('load', function() {
+      const audio = document.getElementById('bgm');
+      const playAudio = () => {
+        audio.play().catch(() => {
+          console.log("等待用户互动后播放音乐");
+        });
+      };
+      playAudio();
+      document.body.addEventListener('click', () => {
+        audio.play();
+      }, { once: true });
+    });
+  </script>
+
+</body>
+</html>
